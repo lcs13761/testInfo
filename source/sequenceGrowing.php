@@ -1,12 +1,35 @@
 <?php
 
-include  __DIR__ . "/source/yearCentury.php";
-include  __DIR__ . "/source/arrayRandon.php";
-include  __DIR__ . "/source/sequenceGrowing.php.php";
 
 
-echo yearCentury('1905');
-randowArray();
+function sequenceGrowing(array $arrayNumber)
+{
+
+  $remove = false;
+
+  for ($i = 0; $i < count($arrayNumber); $i++) {
+    if (isset($arrayNumber[$i + 1]) && ($arrayNumber[$i] > $arrayNumber[$i + 1] || $arrayNumber[$i] == $arrayNumber[$i + 1])) {
+      if (!$remove) {
+
+        unset($arrayNumber[$i]);
+        $remove = true;
+        break;
+      }
+    }
+  }
+
+  $arrayNumber = array_values($arrayNumber);
+
+  for ($i = 0; $i < count($arrayNumber); $i++) {
+    if (isset($arrayNumber[$i + 1]) && ($arrayNumber[$i] > $arrayNumber[$i + 1] || $arrayNumber[$i] == $arrayNumber[$i + 1])) {
+      return ' false<br/>';
+    }
+  }
+  return  ' true<br/>';
+  
+}
+
+
 print_r('[1, 3, 2, 1]' . sequenceGrowing([1, 3, 2]));
 print_r('[1, 3, 2]' . sequenceGrowing([1, 3, 2]));
 print_r('[1, 2, 1, 2]' . sequenceGrowing([1, 2, 1, 2]));
@@ -26,4 +49,3 @@ echo  '[1, 2, 3, 4, 3, 6]' . sequenceGrowing([1, 2, 3, 4, 3, 6]);
 echo  '[1, 2, 3, 4, 99, 5, 6]' . sequenceGrowing([1, 2, 3, 4, 99, 5, 6]);
 echo  '[123, -17, -5, 1, 2, 3, 12, 43, 45]' . sequenceGrowing([123, -17, -5, 1, 2, 3, 12, 43, 45]);
 echo  '[3, 5, 67, 98, 3]' . sequenceGrowing([3, 5, 67, 98, 3]);
-
