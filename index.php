@@ -2,10 +2,11 @@
 
 include  __DIR__ . "/source/yearCentury.php";
 include  __DIR__ . "/source/arrayRandon.php";
-include  __DIR__ . "/source/sequenceGrowing.php.php";
-
+include  __DIR__ . "/source/sequenceGrowing.php";
+include  __DIR__ . "/source/lowerCousin.php.php";
 
 echo yearCentury('1905');
+primoInferior(6);
 randowArray();
 print_r('[1, 3, 2, 1]' . sequenceGrowing([1, 3, 2]));
 print_r('[1, 3, 2]' . sequenceGrowing([1, 3, 2]));
